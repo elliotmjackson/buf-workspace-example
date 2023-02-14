@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package pet.v1;
+
+import "google/type/datetime.proto";
+
+// APet represents a pet in the pet store.
+message APet {
+  string pet_type = 1;
+  string pet_id = 2;
+  string name = 3;
+  google.type.DateTime created_at = 4;
+}
+
+message GetAPetRequest {
+  string pet_id = 1;
+}
+
+message GetAPetResponse {
+  APet pet = 1;
+}
+
+service APetStoreService {
+  rpc GetAPet(GetAPetRequest) returns (GetAPetResponse) {}
+}

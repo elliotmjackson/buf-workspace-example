@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pet.v1;
+
+import "google/type/datetime.proto";
+
+message DeleteBPetRequest {
+  string pet_id = 1;
+  google.type.DateTime created_at = 2;
+}
+
+message DeleteBPetResponse {}
+
+service BPetStoreService {
+  rpc DeleteBPet(DeleteBPetRequest) returns (DeleteBPetResponse) {}
+}
