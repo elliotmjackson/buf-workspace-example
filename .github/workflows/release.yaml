@@ -19,7 +19,7 @@ jobs:
             core.exportVariable('VERSION', "${{ github.event.inputs.version }}".replace("v", ""));
       - id: output_version
         name: Output version to adjacent flows
-        run: echo "version=${env.VERSION}" >> "$GITHUB_OUTPUT"
+        run: echo "version=${{env.VERSION}}" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
